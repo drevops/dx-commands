@@ -1,0 +1,96 @@
+---
+ahoyapi: v2
+
+commands:
+
+  build:
+    usage: Build or rebuild project.
+    cmd: |
+      ahoy title "Building project"
+      ahoy pre-flight
+      ahoy clean
+      ahoy up
+      ahoy install
+      ahoy install-site
+      ahoy title "Build complete"
+      ahoy doctor
+      ahoy info
+
+  cli:
+    usage: Start a shell inside CLI container or run a command.
+    cmd: echo "Would start a shell inside CLI container or run a command."
+
+  doctor:
+    usage: Find problems with current project setup.
+    cmd: echo "Would find problems with current project setup."
+
+  info:
+    usage: Print information about this project.
+    cmd: echo "Would print project information"
+
+  install:
+    usage: Install project and all dependencies
+    cmd: echo "Would install project and all dependencies"
+
+  install-site:
+    usage: Install a site.
+    cmd: echo "Would install a site."
+
+  clean:
+    usage: Remove containers and all build files.
+    cmd: echo "Would remove containers and all build files."
+
+  down:
+    usage: Stop Docker containers and remove container, images, volumes and networks.
+    cmd: echo "Would stop Docker containers and remove container, images, volumes and networks."
+
+  lint:
+    usage: Lint code.
+    cmd: echo "Would lint code"
+
+  logs:
+    usage: Show Docker logs.
+    cmd: echo "Would show Docker logs."
+
+  pull:
+    usage: Pull latest docker images.
+    cmd: echo "Would pull latest docker images."
+
+  start:
+    usage: Start existing Docker containers.
+    cmd: echo "Would start existing Docker containers."
+
+  stop:
+    usage: Stop running Docker containers.
+    cmd: echo "Would stop running Docker containers."
+
+  test-unit:
+    usage: Run unit tests.
+    cmd: echo "Would run unit tests."
+
+  test-bdd:
+    usage: Run BDD tests.
+    cmd: echo "Would run bdd tests."
+
+  up:
+    usage: Build and start Docker containers.
+    cmd: echo "Would build and start Docker containers."
+
+  # Utilities.
+  title:
+    cmd: printf "$(tput -Txterm setaf 4)==> ${1}$(tput -Txterm sgr0)\n"
+    hide: true
+
+  pre-flight:
+    cmd: echo "Would run pre-flight checks."
+    hide: true
+
+entrypoint:
+  - bash
+  - "-c"
+  - "-e"
+  - |
+    [ -f .env ] && [ -s .env ] && export $(grep -v '^#' .env | xargs) && if [ -f .env.local ] && [ -s .env.local ]; then export $(grep -v '^#' .env.local | xargs); fi
+    bash -e -c "$0" "$@"
+  - '{{cmd}}'
+  - '{{name}}'
