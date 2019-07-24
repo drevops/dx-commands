@@ -45,6 +45,10 @@ Would print project information
 - [Drupal-Dev](https://drupal-dev.io) implements these commands for Drupal development (PHP).
 - Implement for your language or framework and be listed here!  
 
+## Similar and partial implementations (that would be nice to unify)
+- GovCMS (PHP, Drupal, https://github.com/govCMS/govCMS/blob/7.x-3.x/.ahoy.yml)
+- SDP (PHP, Drupal, https://github.com/dpc-sdp/dev-tools/blob/master/.ahoy.yml)
+
 ## Commands
 
 ## `build`
