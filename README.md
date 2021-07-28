@@ -42,7 +42,7 @@ Would print project information
 ```
 
 ## Existing implementations
-- [Drupal-Dev](https://drupal-dev.io) implements these commands for Drupal development (PHP).
+- [DrevOps](https://drevops.com) implements these commands for Drupal development (PHP).
 - Implement for your language or framework and be listed here!  
 
 ## Similar and partial implementations (that would be nice to unify)
