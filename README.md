@@ -26,23 +26,23 @@ way.
 
 Depending on your language or a framework, you may create your own
 implementation of
-the [.ahoy.yml](https://github.com/integratedexperts/dx/blob/master/.ahoy.yml)
+the [.ahoy.yml](https://github.com/drevops/dx/blob/master/.ahoy.yml)
 file.
 
 Check it out locally and run `ahoy build` to see how it works (you need to have
 Ahoy installed):
 
-```
+```bash
 $ ahoy build
-==> Building project
+[INFO] Building project
 Would run pre-flight checks.
 Would remove containers and all build files.
 Would build and start Docker containers.
 Would install project and all dependencies.
 Would run provision operations.
-==> Build complete
 Would find problems with current project setup.
 Would print project information
+[INFO] Build complete
 ```
 
 ## Existing implementations
@@ -54,7 +54,7 @@ Would print project information
 ## Similar and partial implementations (that would be nice to unify)
 
 - GovCMS (PHP,
-  Drupal, [https://github.com/govCMS/govCMS/blob/7.x-3.x/.ahoy.yml](https://github.com/govCMS/govCMS/blob/7.x-3.x/.ahoy.yml))
+  Drupal, [https://github.com/govCMS/GovCMS/blob/3.x-develop/.ahoy.yml](https://github.com/govCMS/GovCMS/blob/3.x-develop/.ahoy.yml))
 - SDP (PHP,
   Drupal, [https://github.com/dpc-sdp/dev-tools/blob/master/.ahoy.yml](https://github.com/dpc-sdp/dev-tools/blob/master/.ahoy.yml))
 
@@ -76,7 +76,7 @@ Would print project information
 
 - Install project and all dependencies.
 
-## `provision` (for web-based projects)
+## `provision`
 
 - Perform application-level operations to guarantee consistent application
   state.
@@ -90,8 +90,8 @@ Would print project information
 
 ## `test-unit`
 
-- Run unit tests
-- Agnostic to framework
+- Run unit tests.
+- Agnostic to framework.
 - Must run all tests if no arguments provided.
 
 ## `test-bdd`
@@ -110,20 +110,19 @@ Would print project information
 
 ## `clean`
 
-- Bring project to default state
-- Remove installed dependencies
+- Bring project to default state.
+- Remove installed dependencies.
 
 ## `update`
-- 
 
-- Update ahoy configuration itself
-- Possible to update some platform files
+- Update ahoy configuration itself.
+- Possible to update some platform files.
 
 ## `doctor`
 
-- Identify any problems with the stack
-- Offer resolution suggestions
-- Run before build in pre-flight mode
+- Identify any problems with the stack.
+- Offer resolution suggestions.
+- Run before build in pre-flight mode.
 
 ## Command wrapper
 
@@ -132,6 +131,11 @@ to create and maintain unified commands within a single YAML file.
 
 [.ahoy.yml](https://github.com/drevops/dx/blob/main/.ahoy.yml) file
 in this repository is an example of the command configuration file.
+
+[.ahoy.local.example.yml](https://github.com/drevops/dx/blob/main/.ahoy.local.example.yml)
+file in this repository is an example of the local command configuration file
+that would be excluded from the repository. This file is used to define
+additional local commands.
 
 ### Ahoy config
 

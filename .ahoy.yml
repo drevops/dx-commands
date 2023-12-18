@@ -11,10 +11,10 @@ commands:
       ahoy clean
       ahoy up
       ahoy install
-      ahoy install-site
-      ahoy title "Build complete"
+      ahoy provision
       ahoy doctor
       ahoy info
+      ahoy title "Build complete"
 
   cli:
     usage: Start a shell inside CLI container or run a command.
@@ -78,19 +78,48 @@ commands:
 
   # Utilities.
   title:
-    cmd: printf "$(tput -Txterm setaf 4)==> ${1}$(tput -Txterm sgr0)\n"
+    cmd: printf "$(tput -Txterm setaf 4)[INFO] ${1}$(tput -Txterm sgr0)\n"
     hide: true
 
   pre-flight:
     cmd: echo "Would run pre-flight checks."
     hide: true
 
+  local:
+    usage: Custom local commands. See `ahoy local help`.
+    cmd: |
+      if [ -f .ahoy.local.yml ]; then
+        ahoy -f ".ahoy.local.yml" "$@"
+      else
+        echo ".ahoy.local.yml does not exist."
+        echo "Copy .ahoy.local.example.yml to .ahoy.local.yml and rerun this command.";
+      fi
+
+  # ----------------------------------------------------------------------------
+  # Utilities.
+  # ----------------------------------------------------------------------------
+  confirm:
+    cmd: |
+      if [ -z "$AHOY_CONFIRM_RESPONSE" ]; then
+        read -r -p ">> $1 [y/N] " AHOY_CONFIRM_RESPONSE
+        [ "$AHOY_CONFIRM_RESPONSE" = "y" ] || [ "$AHOY_CONFIRM_RESPONSE" = true ] || ( echo "The operation was canceled." && exit 1 )
+      else
+        echo ">> $1 [y/N] $AHOY_CONFIRM_RESPONSE" \
+        && if [ "${AHOY_CONFIRM_WAIT_SKIP}" != "1" ]; then echo "Waiting for 3 seconds... Press Ctrl+C to cancel."; sleep 3; fi
+      fi
+    hide: true
+
+# Override entrypoint to alter default behaviour of Ahoy.
 entrypoint:
+  # Run all commands in Bash.
   - bash
-  - "-c"
-  - "-e"
+  # Read the commands from the string.
+  - -c
+  # Exit the script if any statement returns a non-true return value.
+  - -e
+  # Read variables from .env file, respecting existing environment variable values.
   - |
-    [ -f .env ] && [ -s .env ] && export $(grep -v '^#' .env | xargs) && if [ -f .env.local ] && [ -s .env.local ]; then export $(grep -v '^#' .env.local | xargs); fi
+    [ -f .env ] && [ -s .env ] && t=$(mktemp) && export -p > "$t" && set -a && . ./.env && if [ -f ./.env.local ];then . ./.env.local;fi && set +a && . "$t" && rm "$t" && unset t
     bash -e -c "$0" "$@"
   - '{{cmd}}'
   - '{{name}}'
