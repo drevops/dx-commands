@@ -22,6 +22,32 @@ and make it available for a developer to work on; `reset` command would remove
 any build artifacts; `info` would display project information in a user-friendly
 way.
 
+## Why DX?
+
+Imagine the simplicity and efficiency of building any project with a single
+command, regardless of its programming language or framework. 
+
+Think of the convenience of running tests or performing routine development 
+tasks across various projects using standardized commands without the hassle 
+of remembering a myriad of options and arguments.
+
+The DX initiative aims to establish a universal set of commands, functioning as
+a common language among developers. This "contract" - akin to an interface in
+object-oriented programming, but designed for human interaction - seeks to
+standardize command vocabulary across projects.
+
+Some examples include:
+
+- The `build` command, which encompasses all necessary steps to prepare a
+  project for development.
+- The `reset` command, tasked with cleaning up any build artifacts.
+- The `info` command, designed to present project details in an accessible,
+  user-friendly format.
+
+This approach not only streamlines the development process but also fosters a
+more collaborative and intuitive environment for developers working on diverse
+projects.
+
 ## What's next?
 
 Depending on your language or a framework, you may create your own
