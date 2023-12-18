@@ -18,7 +18,7 @@ considered a "contract" ("interface" in OOP terms, but for humans) between
 developers working on the projects.
 
 For example, `build` command would do anything required to build the project
-and make it available for a developer to work on; `clean` command would remove
+and make it available for a developer to work on; `reset` command would remove
 any build artifacts; `info` would display project information in a user-friendly
 way.
 
@@ -36,6 +36,7 @@ Ahoy installed):
 $ ahoy build
 [INFO] Building project
 Would run pre-flight checks.
+>> All containers and build files will be removed. Proceed? [y/N] y
 Would remove containers and all build files.
 Would build and start Docker containers.
 Would install project and all dependencies.
@@ -108,9 +109,9 @@ Would print project information
 - `stop` will stop containers, but will not remove any volumes.
 - `logs` will show logs for all or selected services.
 
-## `clean`
+## `reset`
 
-- Bring project to default state.
+- Bring project to the default state.
 - Remove installed dependencies.
 
 ## `update`

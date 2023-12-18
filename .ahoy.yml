@@ -8,7 +8,7 @@ commands:
     cmd: |
       ahoy title "Building project"
       ahoy pre-flight
-      ahoy clean
+      ahoy reset
       ahoy up
       ahoy install
       ahoy provision
@@ -36,9 +36,11 @@ commands:
     usage: Run site provision operations.
     cmd: echo "Would run provision operations."
 
-  clean:
-    usage: Remove containers and all build files.
-    cmd: echo "Would remove containers and all build files."
+  reset:
+    usage: "Remove containers, all build files."
+    cmd: |
+      ahoy confirm "All containers and build files will be removed. Proceed?" &&
+      echo "Would remove containers and all build files."
 
   down:
     usage: Stop Docker containers and remove container, images, volumes and networks.
