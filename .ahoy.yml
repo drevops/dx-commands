@@ -30,11 +30,11 @@ commands:
 
   install:
     usage: Install project and all dependencies
-    cmd: echo "Would install project and all dependencies"
+    cmd: echo "Would install project and all dependencies."
 
-  install-site:
-    usage: Install a site.
-    cmd: echo "Would install a site."
+  provision:
+    usage: Run site provision operations.
+    cmd: echo "Would run provision operations."
 
   clean:
     usage: Remove containers and all build files.
