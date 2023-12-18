@@ -130,7 +130,7 @@ Would print project information
 [Ahoy](https://ahoy-cli.readthedocs.io/en/latest/) provides clean and simple way
 to create and maintain unified commands within a single YAML file.
 
-[.ahoy.yml](https://github.com/drevops/dx/blob/master/.ahoy.yml) file
+[.ahoy.yml](https://github.com/drevops/dx/blob/main/.ahoy.yml) file
 in this repository is an example of the command configuration file.
 
 ### Ahoy config
