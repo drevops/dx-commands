@@ -126,7 +126,9 @@ Would print project information
 - Run behavioural tests
 - Must run all tests if no arguments provided.
 
-## `up`, `down`, `start`, `stop`, `logs` (for Docker-based projects)
+## `up`, `down`, `start`, `stop`, `logs`
+
+Used for Docker-based projects.
 
 - `up` will build Docker images if they do not exist and will start containers.
 - `down` will stop and remove containers.
