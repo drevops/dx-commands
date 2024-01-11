@@ -111,9 +111,13 @@ Would print project information
 
 ## `lint`
 
-- Lint code
+- Check coding standards for violations
 - May contain granular sub-commands to lint back-end and front-end code
   separately (`lint-be` and `lint-fe`).
+
+## `lint-fix`
+
+- Fix coding standards for violations
 
 ## `test-unit`
 
