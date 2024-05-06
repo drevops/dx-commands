@@ -1,8 +1,8 @@
-# DX [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?button_hashtag=DX&text=Cross-language+commands+for+unified+developer+experience+%28%23DX%29.&url=https://integratedexperts.github.io/dx&via=integratedexperts&hashtags=developerexperience,programming)
+# DX Commands [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?button_hashtag=DX+Commands&text=Cross-language+commands+for+unified+developer+experience&url=https://dxcommands.dev/&via=drev_ops&hashtags=developerexperience,programming)
 
 Cross-language commands for unified developer experience.
 
-The DX initiative aims to standardize development commands across various
+The DX Commands initiative aims to standardize development commands across various
 programming languages and framework, ensuring uniform commands for everyday
 tasks.
 
