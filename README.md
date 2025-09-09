@@ -59,7 +59,7 @@ Would print project information
 
 ## Existing implementations
 
-- [DrevOps Scaffold](https://github.com/drevops/scaffold) implements these
+- [Vortex](https://github.com/drevops/vortex) implements these
   commands for Drupal consumer site development
 - [Drupal extension scaffold](https://github.com/AlexSkrypnyk/drupal_extension_scaffold) implements these commands for Drupal
   extensions development
